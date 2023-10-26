@@ -1,9 +1,48 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
 
 const app = express();
 const port = 3000; // You can change this to your desired port
 
+/**
+ * @swagger
+ * /students:
+ *   post:
+ *     summary: Creates a new student object with all of its attributes.
+ *     description: Use this endpoint to create a new student.
+ *     parameters:
+ *       - name: first_name
+ *         description: Student's first name
+ *         in: formData
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - name: last_name
+ *         description: Student's last name
+ *         in: formData
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - name: gpa
+ *         description: Student's GPA
+ *         in: formData
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - name: enrolled
+ *         description: Student's enrolled status
+ *         in: formData
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Unable to create resource.
+ *       201:
+ *         description: Success. The student object has been created.
+ */
 // Use body-parser middleware to parse JSON request bodies
 app.use(bodyParser.json());
 
@@ -32,6 +71,31 @@ app.post('/api/users', (req, res) => {
 
   res.status(201).json(newUser);
 });
+
+// Swagger configuration
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'User Registration API',
+    version: '1.0.0',
+    description: 'API for creating a new user account',
+  },
+  servers: [
+    {
+      url: `http://localhost:${port}`,
+      description: 'Development server',
+    },
+  ],
+};
+
+const options = {
+  swaggerDefinition,
+  apis: ['fauserver.js'], // Replace with the filename of your Express application
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
