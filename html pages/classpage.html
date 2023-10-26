@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .class-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .class-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .class-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .class-actions button {
+            margin-right: 10px;
+        }
+        .like-dislike {
+            display: flex;
+            align-items: center;
+        }
+        .like-count, .dislike-count {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .review-list {
+            list-style: none;
+            padding: 0;
+        }
+        .review-item {
+            border: 1px solid #eee;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .add-review {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Profile</h1>
+        <div class="class-container">
+            <h2 class="class-title">Math 101</h2>
+            <div class="class-actions">
+                <div class="like-dislike">
+                    <span class="like-count" data-class="Math 101">0</span>
+                    <button onclick="likeClass('Math 101')">Like</button>
+                </div>
+                <div class="like-dislike">
+                    <span class="dislike-count" data-class="Math 101">0</span>
+                    <button onclick="dislikeClass('Math 101')">Dislike</button>
+                </div>
+                <button onclick="toggleReview('Math 101')">Add Review</button>
+            </div>
+            <ul class="review-list">
+                <li class="review-item">Great class! I learned a lot.</li>
+                <li class="review-item">The professor was very helpful.</li>
+            </ul>
+            <div class="add-review" data-class="Math 101">
+                <textarea id="mathReview" placeholder="Write your review"></textarea>
+                <button onclick="submitReview('Math 101')">Submit</button>
+            </div>
+        </div>
+        <div class="class-container">
+            <h2 class="class-title">History 202</h2>
+            <div class="class-actions">
+                <div class="like-dislike">
+                    <span class="like-count" data-class="History 202">0</span>
+                    <button onclick="likeClass('History 202')">Like</button>
+                </div>
+                <div class="like-dislike">
+                    <span class="dislike-count" data-class="History 202">0</span>
+                    <button onclick="dislikeClass('History 202')">Dislike</button>
+                </div>
+                <button onclick="toggleReview('History 202')">Add Review</button>
+            </div>
+            <ul class="review-list">
+                <li class="review-item">Interesting subject, but the workload is heavy.</li>
+                <li class="review-item">The class presentations were engaging.</li>
+            </ul>
+            <div class="add-review" data-class="History 202">
+                <textarea id="historyReview" placeholder="Write your review"></textarea>
+                <button onclick="submitReview('History 202')">Submit</button>
+            </div>
+        </div>
+        <div class="class-container">
+            <h2 class="class-title">Computer Logic Design CDA 3203</h2>
+            <div class="class-actions">
+                <div class="like-dislike">
+                    <span class="like-count" data-class="Computer Logic Design CDA 3203">0</span>
+                    <button onclick="likeClass('Computer Logic Design CDA 3203')">Like</button>
+                </div>
+                <div class="like-dislike">
+                    <span class="dislike-count" data-class="Computer Logic Design CDA 3203">0</span>
+                    <button onclick="dislikeClass('Computer Logic Design CDA 3203')">Dislike</button>
+                </div>
+                <button onclick="toggleReview('Computer Logic Design CDA 3203')">Add Review</button>
+            </div>
+            <ul class="review-list">
+                <!-- Reviews for Computer Logic Design CDA 3203 can be added here -->
+            </ul>
+            <div class="add-review" data-class="Computer Logic Design CDA 3203">
+                <textarea id="cdaReview" placeholder="Write your review"></textarea>
+                <button onclick="submitReview('Computer Logic Design CDA 3203')">Submit</button>
+            </div>
+        </div>
+        <div class="class-container">
+            <h2 class="class-title">Programming 1 COP 2220</h2>
+            <div class="class-actions">
+                <div class="like-dislike">
+                    <span class="like-count" data-class="Programming 1 COP 2220">0</span>
+                    <button onclick="likeClass('Programming 1 COP 2220')">Like</button>
+                </div>
+                <div class="like-dislike">
+                    <span class="dislike-count" data-class="Programming 1 COP 2220">0</span>
+                    <button onclick="dislikeClass('Programming 1 COP 2220')">Dislike</button>
+                </div>
+                <button onclick="toggleReview('Programming 1 COP 2220')">Add Review</button>
+            </div>
+            <ul class="review-list">
+                <!-- Reviews for Programming 1 COP 2220 can be added here -->
+            </ul>
+            <div class="add-review" data-class="Programming 1 COP 2220">
+                <textarea id="copReview" placeholder="Write your review"></textarea>
+                <button onclick="submitReview('Programming 1 COP 2220')">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functions for toggling reviews, submitting reviews, liking, and disliking classes can remain the same.
+    </script>
+</body>
+</html>
